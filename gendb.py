@@ -13,12 +13,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 """
 在命令行里执行以下：
-python gendb.py init
+python gendb.py init 
 python gendb.py migrate
 python gendb.py upgrade
 """
-migrate = Migrate(app,db)
+
 manager = Manager(app)
+migrate = Migrate(app,db)
 manager.add_command('db',MigrateCommand)
 
 if __name__ == '__main__':

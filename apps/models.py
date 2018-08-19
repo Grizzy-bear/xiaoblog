@@ -26,7 +26,7 @@ class User(UserMixin,db.Model):
         newpassword = common.md5(originPassword)
         return password == newpassword
 
-    def __repr__(self):
+    def __repr__(self): 
         return '<User %r>' % self.username
 
 class Article(db.Model):
@@ -35,6 +35,7 @@ class Article(db.Model):
     content=db.Column(db.Text,nullable=False)
     tag=db.Column(db.String(64),nullable=True)
     create_time = db.Column(db.DateTime, nullable=True, default=datetime.now)
+    image = db.Column(db.LargeBinary,nullable=True)
 
     def __repr__(self):
         return '<User %r>' % self.title

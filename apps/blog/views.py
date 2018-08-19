@@ -21,7 +21,7 @@ def index2():
 
 @blog.route("/login.html",methods=['POST','GET'])
 def login():
-    form = LoginForm()
+    form = LoginForm() 
     if form.validate_on_submit():
         user=User.query.filter_by(username=form.username.data).first()
         if user is not None:

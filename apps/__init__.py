@@ -19,7 +19,7 @@ def create_app():
     app.register_blueprint(blog)
 
    #注册db
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://pig:xiaobing123@117.48.202.102:3310/cleanblog'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blog:132942blog@localhost/BlogTest?charset=utf8mb4'
     db.init_app(app)
 
     # 国际化
@@ -27,7 +27,7 @@ def create_app():
     babel = Babel(app)
 
     #注册flask-admin
-    admin = Admin(app,name="xiaoblog",template_mode='bootstrap3',base_template='admin/mybase.html')
+    admin = Admin(app,name="Grizzly",template_mode='bootstrap3',base_template='admin/mybase.html')
     from .models import User,Tag,Article
     from flask_admin.contrib.sqla import ModelView
     from apps.modelview import UModelview,BaseMView,ArticleVModel
